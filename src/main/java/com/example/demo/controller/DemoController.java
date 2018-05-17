@@ -16,6 +16,19 @@ public class DemoController {
 //			e.printStackTrace();
 //		}
 		model.addAttribute("hi", "this is my hi");
-		return "html/defaultDataTables";
+		return "hi";
 	}
+	
+	@GetMapping("/hi_change")
+	public String  hi_1() {
+//		try {
+//			res.sendRedirect("defaulltDataTables.html");
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		return "hi_change";
+	}
+	
+	
 }

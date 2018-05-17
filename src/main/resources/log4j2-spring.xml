@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- log4j2不能配置多个环境的配置数据，只能命名3个不同名的日志文件，分别在application-*中配置loggin.config选项 -->
+<configuration>
+    <properties>
+        <!-- 文件输出格式 -->
+        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} |-%-5level [%thread] %c [%L] -| %msg%n</property>
+    </properties>
+    <appenders>
+        <Console name="CONSOLE" target="system_out">
+            <PatternLayout pattern="${PATTERN}" />
+        </Console>
+    </appenders>
+    <loggers>
+        <logger name="com.light.springboot" level="debug" />
+        <root level="info">
+            <appenderref ref="CONSOLE" />
+        </root>
+    </loggers>
+</configuration>
