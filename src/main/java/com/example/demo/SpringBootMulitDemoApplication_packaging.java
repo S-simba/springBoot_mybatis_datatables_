@@ -13,12 +13,14 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class SpringBootMulitDemoApplication_packaging extends SpringBootServletInitializer {
 	
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return super.configure(builder);
-	}
+	 @Override
+	    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	        return application.sources(SpringBootMulitDemoApplication_packaging.class);
+	    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootMulitDemoApplication_packaging.class, args);
-	}
+	    public static void main(String[] args) {
+	        SpringApplication.run(SpringBootMulitDemoApplication_packaging.class, args);
+	    }
+
+	
 }
