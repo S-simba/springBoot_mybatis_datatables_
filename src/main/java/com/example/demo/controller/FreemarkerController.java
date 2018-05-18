@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,7 @@ public class FreemarkerController {
     @RequestMapping("hello")
     public String hello(Map<String,Object> map) {
         
-        map.put("msg", "Hello Freemarker");
+        map.put("msg", "new  Freemarker");
         return "hello";
     }
 }

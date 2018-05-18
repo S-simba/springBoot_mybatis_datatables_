@@ -1,8 +1,12 @@
 package com.example.demo.configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +17,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.example.demo.controller.servlet.ServletTest;
+import com.example.demo.filter.TimeFilter;
 
 @Configuration
 public class WebConfig {
@@ -56,4 +61,23 @@ public class WebConfig {
     public ServletRegistrationBean servletRegistrationBean() {
         return new ServletRegistrationBean(new ServletTest(),"/servletTest");
     }
+    
+    /**
+     * 自定义拦截器
+     * @return
+     */
+    @Bean
+    public FilterRegistrationBean  registerFilter(){
+    	 FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+    	    
+    	    TimeFilter timeFilter = new TimeFilter();
+    	    registrationBean.setFilter(timeFilter);
+    	    
+    	    List<String> urls = new ArrayList<>();
+    	    urls.add("/*");
+    	    registrationBean.setUrlPatterns(urls);
+    	    
+    	    return registrationBean;
+    
+}
 }
