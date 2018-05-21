@@ -3,8 +3,6 @@ package com.example.demo.configuration;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.message.config.RegistrationListener;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -15,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -38,6 +37,36 @@ public class WebConfig  extends  WebMvcConfigurerAdapter{
 	@Autowired
 	private InterceptorDemo interceptor;
 	
+
+	
+	/**
+	 * 用来配置cors跨域请求
+	 * 方法一
+	 * @return
+	 */
+	 	@Override
+	    public void addCorsMappings(CorsRegistry registry) {
+	        registry.addMapping("/fastjson/**")
+	              .allowedOrigins("http://localhost:8080");// 允许 8080 端口访问
+	    }
+	 /**
+	  * cors跨域请求
+	  * 方法二
+	  * not extends  WebMvcConfigurerAdapter
+	  * @return
+	  */
+	/* @Bean
+	    public WebMvcConfigurer corsConfigurer() {
+	        return new WebMvcConfigurerAdapter() {
+	          @Override
+	          public void addCorsMappings(CorsRegistry registry) {
+	              registry.addMapping("/fastjson/**")
+	                      .allowedOrigins("http://localhost:8088");// 允许 8088 端口访问
+	          }
+	        };
+	    }*/
+	
+
 	/**
 	 * 添加拦截器
 	 */
