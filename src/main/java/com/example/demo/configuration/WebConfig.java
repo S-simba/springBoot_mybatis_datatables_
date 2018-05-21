@@ -21,7 +21,7 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.example.demo.controller.servlet.ServletTest;
 import com.example.demo.filter.TimeFilter;
-import com.example.demo.lister.ListenerDemo;
+import com.example.demo.listener.ListenerDemo;
 
 @Configuration
 public class WebConfig {
@@ -86,6 +86,8 @@ public class WebConfig {
 		return registrationBean;
 
 	}
+	
+	@Bean
 	public ServletListenerRegistrationBean<ListenerDemo> registerListener(){
 		ServletListenerRegistrationBean<ListenerDemo> servletListenerRegistrationBean = new ServletListenerRegistrationBean<ListenerDemo>();
 		servletListenerRegistrationBean.setListener(new ListenerDemo());
