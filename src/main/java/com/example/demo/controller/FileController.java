@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("file")
 public class FileController {
-	private String path = "d:\\file";
+	private String path = "C:\\myFiles";
 
 	@PostMapping("upload")
 	public String upload(MultipartFile file) {
@@ -37,15 +37,16 @@ public class FileController {
 		return localFile.getAbsolutePath();
 	}
 
-    @GetMapping("/{id}")
-    public void download(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
-        try (InputStream inputStream = new FileInputStream(new File(path, id + ".jpg"));
-                OutputStream outputStream = response.getOutputStream();) {
-            response.setContentType("application/x-download");
-            response.addHeader("Content-Disposition", "attachment;filename=" + id + ".jpg");
-            IOUtils.copy(inputStream, outputStream);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	@GetMapping("/{id}")
+	public void download(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("file :" + id);
+		try (InputStream inputStream = new FileInputStream(new File(path, id + ".jpg"));
+				OutputStream outputStream = response.getOutputStream();) {
+			response.setContentType("application/x-download");
+			response.addHeader("Content-Disposition", "attachment;filename=" + id + ".jpg");
+			IOUtils.copy(inputStream, outputStream);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

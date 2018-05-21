@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>跨域测试</title>
 </head>
+
 <body>
-    <div class="container">
-        <h2 th:text="${msg}"></h2>
-        
-        
-        
-        <button id="test">测试</button>
+<!-- 用来测试cros，此部分应该放在外部http容器中，可使用notepad一类编辑器书写 -->
+    <button id="test">测试</button>
     <script type="text/javascript" src="jquery-1.12.3.min.js"></script>
     <script type="text/javascript">
     $(function() {
@@ -26,8 +24,6 @@
         });
     });
     </script>
-    </div>
-    
-    
 </body>
+
 </html>
