@@ -25,7 +25,7 @@ public class TimeFilter implements Filter  {
 		if(parameterNames.hasMoreElements()) {
 			System.out.println(parameterNames.nextElement());
 		}
-		System.out.println(".getContextPath():"+arg0.getServletContext().getContextPath());
+		System.out.println(".getContextPath():"+arg0.getRealPath("/hello"));
 //		System.out.println(arg0.getServletContext().getRealPath("d:\\"));
 //		System.out.println(arg0.getServletContext().getResourcePaths("d:\\"));
 		arg2.doFilter(arg0, arg1);
