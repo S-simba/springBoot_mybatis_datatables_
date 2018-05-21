@@ -6,6 +6,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 /**
  * 
+ * 打包成war
+ * 重写configure方法。并在pom文件中修改其打包方式为war
  * @author liusy
  *
  */
