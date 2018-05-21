@@ -15,21 +15,36 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.example.demo.controller.servlet.ServletTest;
 import com.example.demo.filter.TimeFilter;
+import com.example.demo.interceptor.InterceptorDemo;
 import com.example.demo.listener.ListenerDemo;
 
 @Configuration
-public class WebConfig {
+public class WebConfig  extends  WebMvcConfigurerAdapter{
+	
 	@Value("${ds.userName}")
 	private String userName;
 
 	@Autowired
 	private Environment environment;
+	
+	@Autowired
+	private InterceptorDemo interceptor;
+	
+	/**
+	 * 添加拦截器
+	 */
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(interceptor);
+	}
 
 	/**
 	 * 用来测试value标签取值，和配置文件取值
