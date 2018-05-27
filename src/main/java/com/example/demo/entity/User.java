@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 public class User {

@@ -22,6 +22,6 @@ public class AopDemo {
 
 		System.out.println("Aspect 耗时:" + (System.currentTimeMillis() - start));
 
-		return pjp;
+		return object;
 	}
 }

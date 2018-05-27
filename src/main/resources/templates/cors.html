@@ -10,19 +10,8 @@
 <!-- 用来测试cros，此部分应该放在外部http容器中，可使用notepad一类编辑器书写 -->
     <button id="test">测试</button>
     <script type="text/javascript" src="jquery-1.12.3.min.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        $("#test").on("click", function() {
-            $.ajax({
-                "url": "http://localhost:8080/fastjson/test",
-                "type": "get",
-                "dataType": "json",
-                "success": function(data) {
-                    console.log(data);
-                }
-            })
-        });
-    });
+    <script type="text/javascript" src="../static/js/cors.js">
+   
     </script>
 </body>
 

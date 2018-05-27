@@ -37,18 +37,17 @@ public class WebConfig  extends  WebMvcConfigurerAdapter{
 	@Autowired
 	private InterceptorDemo interceptor;
 	
-
 	
 	/**
 	 * 用来配置cors跨域请求
 	 * 方法一
 	 * @return
 	 */
-	 	@Override
+	 /*	@Override
 	    public void addCorsMappings(CorsRegistry registry) {
-	        registry.addMapping("/fastjson/**")
-	              .allowedOrigins("http://localhost:8080");// 允许 8080 端口访问
-	    }
+	        registry.addMapping("/fastjson/*")
+	              .allowedOrigins("http://localhost:8090");// 允许 8090 端口访问
+	    }*/
 	 /**
 	  * cors跨域请求
 	  * 方法二
@@ -75,6 +74,7 @@ public class WebConfig  extends  WebMvcConfigurerAdapter{
 		registry.addInterceptor(interceptor);
 	}
 
+	
 	/**
 	 * 用来测试value标签取值，和配置文件取值
 	 */
